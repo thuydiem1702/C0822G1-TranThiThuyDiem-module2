@@ -2,7 +2,7 @@ package ss3_array_java.exercise;
 
 import java.util.Scanner;
 
-public class Max2 {
+public class Sum_pillar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int m;
@@ -34,15 +34,12 @@ public class Max2 {
             }
             System.out.println();
         }
-
-        int max = arr[0][0];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (arr[i][j] > max) {
-                    max = arr[i][j];
-                }
-            }
+        System.out.println("Nhập cột cần tính tổng ");
+        int number = Integer.parseInt(scanner.nextLine());
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum += arr[i][number];
         }
-        System.out.print("Phần tử lớn nhất là : " + max);
+        System.out.println("tổng của cột " + number + " la " + sum);
     }
 }
