@@ -7,6 +7,7 @@ public class Min {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n;
+
         do {
             System.out.print("Nhập vào số lượng phần tử mảng: ");
             n = Integer.parseInt(scanner.nextLine());
@@ -15,6 +16,7 @@ public class Min {
             }
         } while (n <= 0);
         int[] arr = new int[n];
+
         for (int i = 0; i < arr.length; i++) {
             System.out.print("Nhập vào a[" + i + "]: ");
             arr[i] = Integer.parseInt(scanner.nextLine());

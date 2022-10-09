@@ -9,6 +9,7 @@ public class Merge {
         Scanner scanner = new Scanner(System.in);
         int m = scanner.nextInt();
         int[] arr1 = new int[m];
+
         for (int i = 0; i < m; i++) {
             System.out.print("Nhập vào a[" + i + "]: ");
             arr1[i] = scanner.nextInt();
@@ -17,15 +18,18 @@ public class Merge {
         System.out.print("Nhập mảng 2 có độ dài n = ");
         int n = scanner.nextInt();
         int[] arr2 = new int[n];
+
         for (int i = 0; i < n; i++) {
             System.out.print("Nhập vào a[" + i + "]: ");
             arr2[i] = scanner.nextInt();
         }
         System.out.println();
         int[] array = new int[m + n];
+
         for (int i = 0; i < m; i++) {
             array[i] = arr1[i];
         }
+
         for (int i = 0; i < n; i++) {
             array[i + m] = arr2[i];
         }

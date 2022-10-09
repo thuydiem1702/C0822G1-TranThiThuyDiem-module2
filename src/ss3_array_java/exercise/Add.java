@@ -10,6 +10,7 @@ public class Add {
         Scanner scanner = new Scanner(System.in);
         int x;
         int index;
+
         do {
             System.out.print("Nhập vào số cần chèn: ");
             x = Integer.parseInt(scanner.nextLine());
@@ -22,6 +23,7 @@ public class Add {
                 System.out.println("Vị trí cần chèn phải nhỏ hơn độ dài mảng,xin nhập lại!!! ");
             }
         } while (x <= -1 && index >= arr.length);
+
         for (int i = arr.length - 1; i >= index; i--) {
             arr[i] = arr[i - 1];
             if (i == 1) {
