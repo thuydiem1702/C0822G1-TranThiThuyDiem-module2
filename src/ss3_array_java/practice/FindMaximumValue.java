@@ -2,7 +2,7 @@ package ss3_array_java.practice;
 
 import java.util.Scanner;
 
-public class Find_maximum_value {
+public class FindMaximumValue {
     public static void main(String[] args) {
         int size;
         int[] array;

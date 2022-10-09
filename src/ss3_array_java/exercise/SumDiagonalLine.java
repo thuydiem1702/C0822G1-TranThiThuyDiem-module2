@@ -2,7 +2,7 @@ package ss3_array_java.exercise;
 
 import java.util.Scanner;
 
-public class Sum_diagonal_line {
+public class SumDiagonalLine {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int m;

@@ -2,7 +2,7 @@ package ss3_array_java.practice;
 
 import java.util.Scanner;
 
-public class Temperature_switch {
+public class TemperatureSwitch {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         double fahrenheit;

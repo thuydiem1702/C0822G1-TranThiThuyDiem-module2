@@ -2,7 +2,7 @@ package ss1_introduction_java.exercise;
 
 import java.util.Scanner;
 
-public class Money_change {
+public class MoneyChange {
     public static void main(String[] args) {
         double vnd = 23000;
         Scanner scanner = new Scanner(System.in);

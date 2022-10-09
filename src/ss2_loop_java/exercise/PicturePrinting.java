@@ -2,7 +2,7 @@ package ss2_loop_java.exercise;
 
 import java.util.Scanner;
 
-public class Picture_printing {
+public class PicturePrinting {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Scanner input = new Scanner(System.in);

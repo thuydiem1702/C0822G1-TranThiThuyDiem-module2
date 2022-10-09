@@ -2,7 +2,7 @@ package ss3_array_java.exercise;
 
 import java.util.Scanner;
 
-public class Sum_pillar {
+public class SumPillar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int m;

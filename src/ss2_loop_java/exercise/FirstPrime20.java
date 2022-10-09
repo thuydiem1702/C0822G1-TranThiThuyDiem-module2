@@ -2,7 +2,7 @@ package ss2_loop_java.exercise;
 
 import java.util.Scanner;
 
-public class First_prime20 {
+public class FirstPrime20 {
     public static boolean check(int n) {
         if (n < 2) {
             return false;

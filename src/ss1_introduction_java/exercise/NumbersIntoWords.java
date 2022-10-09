@@ -2,7 +2,7 @@ package ss1_introduction_java.exercise;
 
 import java.util.Scanner;
 
-public class Numbers_into_words {
+public class NumbersIntoWords {
     public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Nhâp số cần chuyển: ");

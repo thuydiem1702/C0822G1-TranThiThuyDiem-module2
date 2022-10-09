@@ -2,7 +2,7 @@ package ss2_loop_java.practice;
 
 import java.util.Scanner;
 
-public class Interest_rate {
+public class InterestRate {
     public static void main(String[] args) {
         double money = 1.0;
         int month = 1;
