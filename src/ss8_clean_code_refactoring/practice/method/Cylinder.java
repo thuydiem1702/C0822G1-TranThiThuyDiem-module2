@@ -1,4 +1,4 @@
-package ss8_clean_code_refactoring.practice_method;
+package ss8_clean_code_refactoring.practice.method;
 
 public class Cylinder {
     public static double getVolume(int radius, int height) {

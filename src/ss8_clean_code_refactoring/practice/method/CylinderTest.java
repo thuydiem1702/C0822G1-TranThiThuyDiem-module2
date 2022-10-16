@@ -1,4 +1,4 @@
-package ss8_clean_code_refactoring.practice_method;
+package ss8_clean_code_refactoring.practice.method;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
