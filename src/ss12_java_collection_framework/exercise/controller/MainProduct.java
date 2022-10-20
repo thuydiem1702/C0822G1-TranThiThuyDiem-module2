@@ -37,7 +37,7 @@ public class MainProduct {
                     break;
                 case 4:
                     System.out.println("chức năng hiển thị danh sách sản phẩm");
-                    productService.dispaly();
+                    productService.display();
                     break;
                 case 5:
                     System.out.println("chức năng tìm kiếm sản phẩm theo tên");

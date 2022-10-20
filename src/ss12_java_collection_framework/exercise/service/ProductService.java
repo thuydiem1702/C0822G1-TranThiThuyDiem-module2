@@ -19,7 +19,7 @@ public class ProductService implements IService {
     }
 
     @Override
-    public void dispaly() {
+    public void display() {
         for (Object s : productArrayList) {
             System.out.println(s);
         }
@@ -36,12 +36,12 @@ public class ProductService implements IService {
         Product product = new Product(id, name, gia);
         // them mới dùng add()
         productArrayList.add(product);
-        dispaly();
+        display();
     }
 
     @Override
     public void edit() {
-        dispaly();
+        display();
         System.out.println(" chon san pham can sua ");
         int edit = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < productArrayList.size(); i++) {
@@ -55,12 +55,12 @@ public class ProductService implements IService {
                 break;
             }
         }
-        dispaly();
+        display();
     }
 
     @Override
     public void delete() {
-        dispaly();
+        display();
         int id = Integer.parseInt(scanner.nextLine());
         Product product = new Product(id);
         System.out.println(" nhap san pham can xoa");
@@ -105,10 +105,10 @@ public class ProductService implements IService {
 
     @Override
     public void sort() {
-        dispaly();
-        System.out.println("-------------------------------------------");
+        display();
+        System.out.println("---------------------------------");
         productArrayList.sort(Comparator.comparing(Product::getCost));
-        dispaly();
+        display();
     }
 
 
