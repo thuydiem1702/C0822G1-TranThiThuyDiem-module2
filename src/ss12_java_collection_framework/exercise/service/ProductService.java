@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ProductService implements IService {
     Scanner scanner = new Scanner(System.in);
-    private static final ArrayList<Product> productArrayList = new ArrayList<Product>();
+    private static final ArrayList<Product> productArrayList = new ArrayList<>();
 
     static {
         productArrayList.add(new Product(1, "a", 2000));
@@ -27,13 +27,13 @@ public class ProductService implements IService {
 
     @Override
     public void add() {
-        System.out.println("nhập id san pham");
+        System.out.println("Nhập id sản phẩm");
         int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("nhập tên sang pham");
+        System.out.println("Nhập tên sản phẩm");
         String name = scanner.nextLine();
-        System.out.println("nhập gia san pham");
-        int gia = Integer.parseInt(scanner.nextLine());
-        Product product = new Product(id, name, gia);
+        System.out.println("Nhập gia sản phẩm");
+        int cost = Integer.parseInt(scanner.nextLine());
+        Product product = new Product(id, name, cost);
         // them mới dùng add()
         productArrayList.add(product);
         display();
@@ -42,15 +42,15 @@ public class ProductService implements IService {
     @Override
     public void edit() {
         display();
-        System.out.println(" chon san pham can sua ");
+        System.out.println(" Chọn sản phẩm cần sửa ");
         int edit = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < productArrayList.size(); i++) {
             if (edit == productArrayList.get(i).getId()) {
-                System.out.println("nhập id san pham");
+                System.out.println("Nhập id sản phẩm");
                 productArrayList.get(i).setId(Integer.parseInt(scanner.nextLine()));
-                System.out.println("nhập tên sang pham");
+                System.out.println("Nhập tên sản phẩm");
                 productArrayList.get(i).setName(scanner.nextLine());
-                System.out.println("nhập gia san pham");
+                System.out.println("Nhập gia sản phẩm");
                 productArrayList.get(i).setCost(Integer.parseInt(scanner.nextLine()));
                 break;
             }
@@ -61,15 +61,14 @@ public class ProductService implements IService {
     @Override
     public void delete() {
         display();
-        int id = Integer.parseInt(scanner.nextLine());
-        Product product = new Product(id);
-        System.out.println(" nhap san pham can xoa");
-        int delete = Integer.parseInt(scanner.nextLine());
+        System.out.println(" Nhập id sản phẩm cần xoá ");
+        int idDelete = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < productArrayList.size(); i++) {
-            if (delete == productArrayList.get(i).getId()) {
+            if (idDelete == productArrayList.get(i).getId()) {
                 productArrayList.remove(i);
                 break;
             }
+
         }
         //cach 2
 //        return this.productArrayList.remove(product);
@@ -94,19 +93,19 @@ public class ProductService implements IService {
         // cach 2
         int count = 0;
         for (Product s : productArrayList) {
-            if (s.getName().indexOf(name) >= 0) {
+            if (s.getName().contains(name)) {
                 System.out.println(s);
             } else {
                 count++;
             }
         }if (count>0)
-            System.out.println(" ten cua ban tim ko co");
+            System.out.println("Sản phẩm bạn tìm không có !");
     }
 
     @Override
     public void sort() {
         display();
-        System.out.println("---------------------------------");
+        System.out.println("-----");
         productArrayList.sort(Comparator.comparing(Product::getCost));
         display();
     }

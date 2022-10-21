@@ -10,7 +10,7 @@ public class MainProduct {
     public static void displayMainMenu() {
         boolean flag = true;
         do {
-            System.out.println("Chức năng của hệ thống " +
+            System.out.println("System Functions" +
                     "\n 1.Add" +
                     "\n 2.Edit" +
                     "\n 3.Delete" +
@@ -23,7 +23,7 @@ public class MainProduct {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
-                    System.out.println("chức năng thêm sản phẩm");
+                    System.out.println("Chức năng thêm sản phẩm");
                     productService.add();
                     break;
                 case 2:
@@ -36,17 +36,17 @@ public class MainProduct {
                     productService.delete();
                     break;
                 case 4:
-                    System.out.println("chức năng hiển thị danh sách sản phẩm");
+                    System.out.println("Chức năng hiển thị danh sách sản phẩm");
                     productService.display();
                     break;
                 case 5:
-                    System.out.println("chức năng tìm kiếm sản phẩm theo tên");
-                    System.out.println(" nhap ten can tim ");
+                    System.out.println("Chức năng tìm kiếm sản phẩm theo tên");
+                    System.out.println(" Nhập tên cần tìm ");
                     String name = scanner.nextLine();
                     productService.searchByName(name);
                     break;
                 case 6:
-                    System.out.println("chức năng sắp xếp sản phẩm tăng dần, giảm dần theo giá");
+                    System.out.println("Chức năng sắp xếp sản phẩm tăng dần theo giá");
                     productService.sort();
                     break;
                 default:
