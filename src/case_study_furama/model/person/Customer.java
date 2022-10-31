@@ -1,16 +1,12 @@
 package case_study_furama.model.person;
 
+import java.time.LocalDate;
+
 public class Customer extends Person {
     private String typeCustomer;
-    private String addressCustomer;
+    private String address;
 
     public Customer() {
-    }
-
-    public Customer(String id, String name, String dateOfBirth, boolean gender, int idNumber, int phoneNumber, String email, String typeCustomer, String addressCustomer) {
-        super(id, name, dateOfBirth, gender, idNumber, phoneNumber, email);
-        this.typeCustomer = typeCustomer;
-        this.addressCustomer = addressCustomer;
     }
 
     public String getTypeCustomer() {
@@ -21,19 +17,37 @@ public class Customer extends Person {
         this.typeCustomer = typeCustomer;
     }
 
-    public String getAddressCustomer() {
-        return addressCustomer;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressCustomer(String addressCustomer) {
-        this.addressCustomer = addressCustomer;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Customer(String typeCustomer, String address) {
+        this.typeCustomer = typeCustomer;
+        this.address = address;
+    }
+
+    public Customer(String id, String name, LocalDate dateOfBirth, String gender, String idNumber, String phoneNumber, String email, String typeCustomer, String address) {
+        super(id, name, dateOfBirth, gender, idNumber, phoneNumber, email);
+        this.typeCustomer = typeCustomer;
+        this.address = address;
+
+    }
+
+    @Override
+    public String getInfoToCSV() {
+        return super.getInfoToCSV() + "," + this.typeCustomer  + "," + this.address;
     }
 
     @Override
     public String toString() {
-        return "Customer : " +
-                super.toString() +
-                "typeCustomer='" + typeCustomer + '\'' +
-                ", addressCustomer='" + addressCustomer + '\'';
+        return "Customer{" +
+                super.toString()+
+                "; typeCustomer='" + typeCustomer + '\'' +
+                "; address='" + address + '\'' +
+                '}';
     }
 }

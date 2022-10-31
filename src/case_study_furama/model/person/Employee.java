@@ -1,49 +1,64 @@
 package case_study_furama.model.person;
 
+import java.time.LocalDate;
+
 public class Employee extends Person {
-    private String level;
-    private String position;
-    private double wage;
+    private String levelEmployee;
+    private String locationEmployee;
+    private String salaryEmployee;
 
     public Employee() {
     }
 
-    public Employee(String id, String name, String dateOfBirth, boolean gender, int idNumber, int phoneNumber, String email, String level, String position, double wage) {
+    public Employee(String levelEmployee, String locationEmployee, String salaryEmployee) {
+        this.levelEmployee = levelEmployee;
+        this.locationEmployee = locationEmployee;
+        this.salaryEmployee = salaryEmployee;
+    }
+
+    public Employee(String id, String name, LocalDate dateOfBirth, String gender, String idNumber, String phoneNumber, String email, String levelEmployee, String locationEmployee, String salaryEmployee) {
         super(id, name, dateOfBirth, gender, idNumber, phoneNumber, email);
-        this.level = level;
-        this.position = position;
-        this.wage = wage;
+        this.levelEmployee = levelEmployee;
+        this.locationEmployee = locationEmployee;
+        this.salaryEmployee = salaryEmployee;
     }
 
-    public String getLevel() {
-        return level;
+    @Override
+    public String getInfoToCSV() {
+        return super.getInfoToCSV() + "," + this.levelEmployee + "," + this.locationEmployee + "," + this.salaryEmployee;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public String getLevelEmployee() {
+        return levelEmployee;
     }
 
-    public String getPosition() {
-        return position;
+    public void setLevelEmployee(String levelEmployee) {
+        this.levelEmployee = levelEmployee;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public String getLocationEmployee() {
+        return locationEmployee;
     }
 
-    public double getWage() {
-        return wage;
+    public void setLocationEmployee(String locationEmployee) {
+        this.locationEmployee = locationEmployee;
     }
 
-    public void setWage(double wage) {
-        this.wage = wage;
+    public String getSalaryEmployee() {
+        return salaryEmployee;
+    }
+
+    public void setSalaryEmployee(String salaryEmployee) {
+        this.salaryEmployee = salaryEmployee;
     }
 
     @Override
     public String toString() {
-        return "Employee : " + super.toString() +
-                "level='" + level + '\'' +
-                ", position='" + position + '\'' +
-                ", wage=" + wage ;
+        return "Employee{" +
+                super.toString() +
+                "levelEmployee='" + levelEmployee + '\'' +
+                ", locationEmployee='" + locationEmployee + '\'' +
+                ", salaryEmployee=" + salaryEmployee +
+                '}';
     }
 }

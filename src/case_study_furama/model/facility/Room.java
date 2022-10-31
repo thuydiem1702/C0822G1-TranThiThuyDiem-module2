@@ -1,27 +1,38 @@
 package case_study_furama.model.facility;
 
 public class Room extends Facility {
-    private String freeFacility;
+    private String freeService;
 
     public Room() {
     }
 
-    public Room(String nameFacility, int areaFacility, int moneyFacility, int maxPerSon, String typeFacility,String freeFacility) {
-        super(nameFacility, areaFacility, moneyFacility, maxPerSon, typeFacility);
-        this.freeFacility = freeFacility;
+    public Room(String idService, String nameService, double usableArea, double rentalCosts, int maximumNumOfPeople, String rentalType, String freeService) {
+        super(idService, nameService, usableArea, rentalCosts, maximumNumOfPeople, rentalType);
+        this.freeService = freeService;
     }
 
-    public String getFreeFacility() {
-        return freeFacility;
+    public Room(String freeService) {
+        this.freeService = freeService;
     }
 
-    public void setFreeFacility(String freeFacility) {
-        this.freeFacility = freeFacility;
+    @Override
+    public String getInfoToCSV() {
+        return super.getInfoToCSV()+","+this.freeService;
+    }
+
+    public String getFreeService() {
+        return freeService;
+    }
+
+    public void setFreeService(String freeService) {
+        this.freeService = freeService;
     }
 
     @Override
     public String toString() {
-        return "Room : " + super.toString() +
-                "freeFacility='" + freeFacility ;
+        return "Room{" +
+                super.toString() +
+                " ;freeService='" + freeService + '\'' +
+                '}';
     }
 }

@@ -1,18 +1,20 @@
 package case_study_furama.model.person;
 
+import java.time.LocalDate;
+
 public class Person {
     private String id;
     private String name;
-    private String dateOfBirth;
-    private boolean gender;
-    private int idNumber;
-    private int phoneNumber;
+    private LocalDate dateOfBirth;
+    private String gender;
+    private String idNumber;
+    private String phoneNumber;
     private String email;
 
-    protected Person() {
+    public Person() {
     }
 
-    protected Person(String id, String name, String dateOfBirth, boolean gender, int idNumber, int phoneNumber, String email) {
+    public Person(String id, String name, LocalDate dateOfBirth, String gender, String idNumber, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -38,35 +40,35 @@ public class Person {
         this.name = name;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public int getIdNumber() {
+    public String getIdNumber() {
         return idNumber;
     }
 
-    public void setIdNumber(int idNumber) {
+    public void setIdNumber(String idNumber) {
         this.idNumber = idNumber;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -78,15 +80,19 @@ public class Person {
         this.email = email;
     }
 
+    public String getInfoToCSV() {
+        return this.id + "," + this.name + "," + this.dateOfBirth + "," + this.gender + "," + this.idNumber + "," + this.phoneNumber + "," + this.email;
+    }
+
+
     @Override
     public String toString() {
         return "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", gender=" + gender +
-                ", idNumber=" + idNumber +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\''
-                ;
+                "; name='" + name + '\'' +
+                "; dateOfBirth=" + dateOfBirth +
+                "; gender='" + gender + '\'' +
+                "; idNumber=" + idNumber +
+                "; phoneNumber=" + phoneNumber +
+                "; email='" + email + '\'';
     }
 }
