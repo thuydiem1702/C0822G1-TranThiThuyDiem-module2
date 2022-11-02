@@ -16,13 +16,13 @@ import java.util.Scanner;
 public class CustomerService implements ICustomerService {
     private static final Scanner scanner = new Scanner(System.in);
     private static final List<Customer> customerList = new ArrayList<>();
-    private static final String PATH_FILE = "src/case_study/data/Customer.csv";
+    private static final String PATH_FILE = "src\\case_study_furama\\data\\Customer.csv";
 
     @Override
     public void display() {
         List<Customer> customerList = ReadAndWriteCSV.readCustomerList(PATH_FILE);
         if (customerList.isEmpty()) {
-            System.out.println("Chưa có dữ liệu, mời bạn thêm vào.");
+            System.out.println("Chưa có dữ liệu, mời bạn nhập thêm dữ liệu !!!");
         } else {
             for (int i = 0; i < customerList.size(); i++) {
                 System.out.println((1 + i) + ". " + customerList.get(i));
@@ -41,7 +41,7 @@ public class CustomerService implements ICustomerService {
             if (Check.checkCustomerName(name)) {
                 System.out.println("Nhập đúng tên");
             } else {
-                System.err.println("Nhập không đúng tên pháp yêu cầu nhập lại");
+                System.err.println("Nhập không đúng tên, yêu cầu nhập lại");
             }
         } while (!Check.checkCustomerName(name));
 
@@ -49,12 +49,12 @@ public class CustomerService implements ICustomerService {
         LocalDate date;
         do {
             try {
-                System.out.println("Nhập ngay sinh theo dd/MM/yyyy");
+                System.out.println("Nhập ngày sinh theo dd/MM/yyyy");
                 String day = scanner.nextLine();
                 date = LocalDate.parse(day, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 Period periodToNextJavaRelease = Period.between(date, dateNow);
                 if (periodToNextJavaRelease.getYears() < 100 && periodToNextJavaRelease.getYears() > 18) {
-                    System.out.println("Bạn đã nhập đúng ");
+                    System.out.println("Cảm ơn bạn đã nhập đúng ");
                     break;
                 }
                 System.err.println("Bạn đã nhập sai yêu cầu nhâp lại ");
@@ -91,13 +91,13 @@ public class CustomerService implements ICustomerService {
         } while (gioitinh.equals(""));
         String idNumber;
         do {
-            System.out.println("Nhập số CMND gồm 9 số hoặc căn cước công dân gồm 11 số");
+            System.out.println("Nhập số CMND gồm 9 số hoặc căn cước công dân gồm 11 số!");
             idNumber = scanner.nextLine();
             if (Check.checkCustomerIdName(idNumber)) {
                 System.out.println("Nhập đúng số CMND hoặc căn cước công dân");
                 break;
             } else {
-                System.err.println("Nhập không đúng số CMND hoặc căn cước công dân yêu cầu nhập lại");
+                System.err.println("Nhập không đúng số CMND hoặc căn cước công dân, yêu cầu nhập lại");
             }
         } while (!Check.checkCustomerIdName(idNumber));
         String idPhone;
@@ -122,7 +122,7 @@ public class CustomerService implements ICustomerService {
                 System.err.println("Nhập không đúng email, yêu cầu nhập lại");
             }
         } while (!Check.checkCustomerEmail(email));
-        System.out.println(" Mời bạn nhập khách hàng");
+        System.out.println(" Mời bạn nhập khách hàng ");
         String level = "";
         String choose;
         do {
@@ -151,7 +151,7 @@ public class CustomerService implements ICustomerService {
                     level = "Member";
                     break;
                 default:
-                    System.err.println("Bạn chọn không đúng chế độ khách hàng, mời bạn chọn lại");
+                    System.err.println("Bạn chọn không đúng kiểu khách hàng, mời bạn chọn lại !!!");
             }
         } while (level.equals(""));
         System.out.print("Nhập địa chỉ: ");

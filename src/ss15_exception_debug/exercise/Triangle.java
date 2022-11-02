@@ -1,16 +1,16 @@
 package ss15_exception_debug.exercise;
 
-public class Triangle extends IllegalTriangleException {
+public class Triangle extends Test {
     private double a, b, c;
 
     public Triangle() {
     }
 
-    public Triangle(double a, double b, double c) throws IllegalTriangleExceptionTest {
+    public Triangle(double a, double b, double c) throws IllegalTriangleException {
         if (a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalTriangleExceptionTest(" canh ko duoc be hon hoac bang ko ");
+            throw new IllegalTriangleException(" canh ko duoc be hon hoac bang ko ");
         } else if (a + b < c || a + c < b || c + b < a) {
-            throw new IllegalTriangleExceptionTest(" tong 2 canh lon hon canh con lai");
+            throw new IllegalTriangleException(" tong 2 canh lon hon canh con lai");
         } else {
             this.a = a;
             this.b = b;
@@ -42,11 +42,11 @@ public class Triangle extends IllegalTriangleException {
         this.c = c;
     }
 
-    public void check(int a, int b, int c) throws IllegalTriangleExceptionTest {
+    public void check(int a, int b, int c) throws IllegalTriangleException {
         if (a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalTriangleExceptionTest(" canh ko duoc be hon hoac bang ko ");
+            throw new IllegalTriangleException(" canh ko duoc be hon hoac bang ko ");
         } else if (a + b <= c || a + c <= b || c + b <= a) {
-            throw new IllegalTriangleExceptionTest(" tong 2 canh lon hon canh con lai");
+            throw new IllegalTriangleException(" tong 2 canh lon hon canh con lai");
         } else {
             setA(a);
             setB(b);

@@ -14,18 +14,18 @@ import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class BookingService implements IBookingService {
-    private static final String PATH_FILE_VILLA = "src/case_study/data/Villa.csv";
-    private static final String PATH_FILE_HOUSE = "src/case_study/data/House.csv";
-    private static final String PATH_FILE_ROOM = "src/case_study/data/Room.csv";
-    private static final String PATH_FILE_CUSTOMER = "src/case_study/data/Customer.csv";
-    private static final String PATH_FILE = "src/case_study/data/Booking.csv";
+    private static final String PATH_FILE_VILLA = "src\\case_study_furama\\data\\Villa.csv";
+    private static final String PATH_FILE_HOUSE = "src\\case_study_furama\\data\\House.csv";
+    private static final String PATH_FILE_ROOM = "src\\case_study_furama\\data\\Room.csv";
+    private static final String PATH_FILE_CUSTOMER = "src\\case_study_furama\\data\\Customer.csv";
+    private static final String PATH_FILE = "src\\case_study_furama\\data\\Booking.csv";
     private static final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void display() {
         Set<Booking> bookingSet = ReadAndWriteCSV.readBookingtoCSV(PATH_FILE);
         if (bookingSet.isEmpty()) {
-            System.out.println("Chưa có dữ liệu, mời bạn thêm vào.");
+            System.out.println("Chưa có dữ liệu, mời bạn nhập thêm dữ liệu !!!");
         } else {
             for (Booking b : bookingSet) {
                 System.out.println(b);
@@ -46,33 +46,33 @@ public class BookingService implements IBookingService {
         LocalDate startDay;
         do {
             try {
-                System.out.println("nhập bắt đầu theo dd/MM/yyyy và trong 10 năm gần đây");
+                System.out.println("Nhập bắt đầu theo dd/MM/yyyy và trong 10 năm gần đây");
                 String day = scanner.nextLine();
                 startDay = LocalDate.parse(day, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 Period periodToNextJavaRelease = Period.between(startDay, dateNow);
                 if (periodToNextJavaRelease.getYears() < 10) {
-                    System.out.println("bạn đã nhập đúng ");
+                    System.out.println("Cảm ơn bạn đã nhập dữ liệu");
                     break;
                 }
-                System.out.println("bạn đã nhập sai yêu cầu nhâp lại ");
+                System.out.println("Bạn đã nhập sai, yêu cầu nhâp lại ");
             } catch (DateTimeParseException e) {
-                System.err.println("bạn đã nhập sai yêu cầu nhâp lại ");
+                System.err.println("Bạn đã nhập sai, yêu cầu nhâp lại ");
             }
         } while (true);
         LocalDate endDay;
         do {
             try {
-                System.out.println("nhập kết thúc  theo dd/MM/yyyy và trong 10 năm gần đây");
+                System.out.println("Nhập kết thúc  theo dd/MM/yyyy và trong 10 năm gần đây");
                 String day = scanner.nextLine();
                 endDay = LocalDate.parse(day, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 Period periodToNextJavaRelease = Period.between(endDay, dateNow);
                 if (periodToNextJavaRelease.getYears() < 10) {
-                    System.out.println("bạn đã nhập đúng ");
+                    System.out.println("Cảm ơn bạn đã nhập dữ liệu");
                     break;
                 }
-                System.out.println("bạn đã nhập sai yêu cầu nhâp lại ");
+                System.out.println("Bạn đã nhập sai, yêu cầu nhâp lại ");
             } catch (DateTimeParseException e) {
-                System.err.println("bạn đã nhập sai yêu cầu nhâp lại ");
+                System.err.println("Bạn đã nhập sai, yêu cầu nhâp lại ");
             }
         } while (true);
 
@@ -82,7 +82,7 @@ public class BookingService implements IBookingService {
         Booking booking = new Booking(id, startDay, endDay, customer, facility);
         bookingSet.add(booking);
         ReadAndWriteCSV.writeBookingtoCSV(bookingSet, PATH_FILE, true);
-        System.out.println("Đã booking thành công. ");
+        System.out.println("Đã booking thành công !");
     }
 
     @Override
@@ -93,11 +93,11 @@ public class BookingService implements IBookingService {
     public static String chooseCustomer() {
 
         List<Customer> customerList = ReadAndWriteCSV.readCustomerList(PATH_FILE_CUSTOMER);
-        System.out.println(" danh sách khách hàng ");
+        System.out.println(" Danh sách khách hàng ");
         for (Customer customer : customerList) {
             System.out.println(customer.toString());
         }
-        System.out.println(" nhập id khách hàng cần chọn ");
+        System.out.println(" Nhập id khách hàng cần chọn ");
         String id = scanner.nextLine();
         do {
             for (Customer customer : customerList) {
@@ -106,7 +106,7 @@ public class BookingService implements IBookingService {
                     return customer.toString();
                 }
             }
-            System.err.println(" bạn đã nhập sai cần nhập lại id khách hàng cần chọn ");
+            System.err.println(" Bạn đã nhập sai cần nhập lại id khách hàng cần chọn ");
             id = scanner.nextLine();
         } while (true);
     }
@@ -129,11 +129,11 @@ public class BookingService implements IBookingService {
         for (Facility key : keySetR) {
             facilityIntegerMap.put(key, facilityRoom.get(key));
         }
-        System.out.println(" danh sách dịch vụ  ");
+        System.out.println(" Danh sách dịch vụ  ");
         for (Map.Entry<Facility, Integer> f : facilityIntegerMap.entrySet()) {
             System.out.println(f.getKey().toString());
         }
-        System.out.println(" nhập id dịch vụ cần chọn ");
+        System.out.println(" Nhập id dịch vụ cần chọn ");
 
         String id = scanner.nextLine();
         while (true) {
@@ -142,7 +142,7 @@ public class BookingService implements IBookingService {
                     return entry.getKey().toString();
                 }
             }
-            System.err.println(" bạn đã nhập sai cần nhập lại id dịch vụ cần chọn ");
+            System.err.println(" Bạn đã nhập sai !!! Nhập lại id dịch vụ cần chọn : ");
             id = scanner.nextLine();
         }
     }
