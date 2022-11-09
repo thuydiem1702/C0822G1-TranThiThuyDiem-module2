@@ -1,6 +1,7 @@
 package case_study.service.impl;
 
 import case_study.model.Facility;
+import case_study.model.Link;
 import case_study.model.Room;
 import case_study.model.Villa;
 import case_study.service.IFacilityService;
@@ -15,10 +16,6 @@ public class FacilityService implements IFacilityService {
     public static final String PATH_VILLA = "src/case_study/data/villa.csv";
     public static final String PATH_ROOM = "src/case_study/data/room.csv";
 
-    @Override
-    public void displayMaintain() {
-
-    }
 
     @Override
     public void add() {
@@ -120,6 +117,27 @@ public class FacilityService implements IFacilityService {
         Map<Facility, Integer> roomList = ReadWriteFacilityFileUtil.readFacilityFile(PATH_ROOM);
         for (Facility room : roomList.keySet()) {
             System.out.println(room + " | Số lần sử dụng: " + roomList.get(room));
+        }
+    }
+
+    @Override
+    public void displayMaintain() {
+        System.out.println("\nDanh sách bảo trì cơ sở: ");
+
+        System.out.println("1. Danh sách bảo trì biệt thự: ");
+        Map<Facility, Integer> villaList = ReadWriteFacilityFileUtil.readFacilityFile(Link.PATH_VILLA.getPath());
+        for (Facility villa : villaList.keySet()) {
+            if (villaList.get(villa) > 4) {
+                System.out.println(villa + " | Số lần sử dụng: " + villaList.get(villa));
+            }
+        }
+
+        System.out.println("2. Danh sách bảo trì phòng: ");
+        Map<Facility, Integer> roomList = ReadWriteFacilityFileUtil.readFacilityFile(Link.PATH_ROOM.getPath());
+        for (Facility room : roomList.keySet()) {
+            if (roomList.get(room) > 4) {
+                System.out.println(room + " | Số lần sử dụng: " + roomList.get(room));
+            }
         }
     }
 }
