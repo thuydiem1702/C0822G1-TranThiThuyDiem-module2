@@ -24,8 +24,8 @@ public class FuramaController {
                     + "6. Thoát\n");
 
             System.out.print("Nhập lựa chọn của bạn: ");
-//            int choose = Integer.parseInt(scanner.nextLine());
-            int choose = RegexExceptionUtil.numbersGreaterThan0();
+            int choose = Integer.parseInt(scanner.nextLine());
+//            int choose = RegexExceptionUtil.numbersGreaterThan0();
 
             switch (choose) {
                 case 1:

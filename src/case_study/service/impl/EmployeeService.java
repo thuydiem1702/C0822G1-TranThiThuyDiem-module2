@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class EmployeeService implements IEmployeeService {
     public static final Scanner SCANNER = new Scanner(System.in);
-    public static final String PATH = "src/case_study/data/employee.csv";
+    public static final String PATH = "src\\case_study\\data\\employee.csv";
 
     @Override
     public void edit() {
@@ -72,7 +72,7 @@ public class EmployeeService implements IEmployeeService {
                         case "6":
                             System.out.print("Nhập số điện thoại: ");
 //                            employee.setPhone(SCANNER.nextLine());
-                            employee.setPhone(RegexExceptionUtil.getPhone());
+                          RegexExceptionUtil.getPhone();
                             break;
                         case "7":
                             System.out.print("Nhập email: ");
